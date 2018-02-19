@@ -25,40 +25,24 @@
                     <h1>Notas del curso</h1>
                     <p></p>
 
-                    <div class="container">  
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombres</th>
+                                            <th>Apellidos</th>
+                                            <th>Teléfono</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                        <% if (request.getAttribute("listaProfesorBuscar") != null) {
-                                ArrayList<Profesor> list = (ArrayList<Profesor>) request.getAttribute("listaProfesorBuscar");
-                                if (list != null)
-                                    for (Profesor profesor : list) {
-                        %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
-                        <div class="form-group">
-                            <label for="nombre_profesor">Nombre:</label>
-                            <input  class="form-control" name="nombre_profesor" readonly="readonly" value="<%=profesor.getNombre_profesor()%>">
-                        </div>
-                        <div class="form-group">
-                            <label for="descripcion">Usuario:</label>
-                            <input  class="form-control" name="descripcion_profesor" readonly="readonly" value="<%=profesor.getUsuario_profesor()%>">
-                        </div>
-                        <div class="form-group">
-                            <label for="descripcion_profesor">Descripcion:</label>
-                            <input  class="form-control" name="descripcion_profesor" readonly="readonly" value="<%=profesor.getDescripcion_profesor()%>">
-                        </div>
-                        <div class="form-group">
-                            <label for="contato_profesor">Contacto:</label>
-                            <input  class="form-control" name="contacto_profesor" readonly="readonly" value="<%=profesor.getContacto_profesor()%>">
-                        </div>
-                        <% }
-                                }
-                        %>
-
-
-                        <br>
-                <br>
-                <a  href="menu.jsp">
-                    <button type="button" class="btn tm-bordered-btn pull-xs-center">Volver</button>
-                </a>
                     </div>
 
                 </div>
@@ -66,7 +50,7 @@
             </div>
         </div>
         <p></p>
-    
+
 
     </body>
 </html>
