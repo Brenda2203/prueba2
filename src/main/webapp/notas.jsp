@@ -13,32 +13,38 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">                       <!-- Bootstrap style, http://v4-alpha.getbootstrap.com/ -->
         <link rel="stylesheet" href="css/templatemo-style.css">                    <!-- Templatemo style -->
 
+        <script src="http://code.jquery.com/jquery-latest.js">
+        </script>
+
         <script>
             $(document).ready(function () {
-                $.ajax({
-                    url: 'https://jhonvp.github.io/data.json',
-                    dataType: "json",
-                    success: function (personas) {
-
-                        var notasjsp = $.map(notas, function (nota, mostrarNotas) {
-                            var listItem = $('<tr></tr>');
-                            $('<td>' + Nota.id_estudiante + '<td>').appendTo(listItem);
-                            $('<td>' + Nota.id_tema + '<td>').appendTo(listItem);
-                            $('<td>' + Nota.nota + '<td>').appendTo(listItem);
-                            return listItem;
-                        });
-                        $('.table tbody').detach().jsp(notasjsp).appendTo('.table');
-                    },
-                    error: function () {
-                        alert("Error");
-                    },
-                    timeout: 3000
+                $('#submit').click(function (event) {
+                    var nombreVar = $('#nombre').val();
+                    var apellidoVar = $('#apellido').val();
+                    var edadVar = $('#edad').val();
+                    // Si en vez de por post lo queremos hacer por get, cambiamos el $.post por $.get
+                    $.post('ActionServlet', {
+                        nombre: nombreVar,
+                        apellido: apellidoVar,
+                        edad: edadVar
+                    }, function (responseText) {
+                        $('#tabla').html(responseText);
+                    });
                 });
             });
         </script>
     </head>
     <body>
-
+        <h2>Ejemplo de AJAX con JSP y Servelts</h2>
+        <form id="form1">
+            Nombre:<input type="text" id="nombre" /> <br>
+            Apellido: <input type="text" id="apellido" /> <br>
+            Edad: <input type="text" id="edad" /> <br>
+            <input type="button" id="submit" value="Añadir" /> 
+        </form>
+        <br>
+        <!-- 	En este div metemos el contenido de la tabla con AJAX -->
+        <div id="tabla"></div>
         <%--  <%@include file="header.jsp" %> --%>
         <div class="container-fluid text-center">    
             <div class="row content">
