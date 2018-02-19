@@ -1,5 +1,6 @@
 <%@page import="Model.Nota"%>
 <%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,6 +13,29 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">                       <!-- Bootstrap style, http://v4-alpha.getbootstrap.com/ -->
         <link rel="stylesheet" href="css/templatemo-style.css">                    <!-- Templatemo style -->
 
+        <script>
+            $(document).ready(function () {
+                $.ajax({
+                    url: 'https://jhonvp.github.io/data.json',
+                    dataType: "json",
+                    success: function (personas) {
+
+                        var notasjsp = $.map(notas, function (nota, mostrarNotas) {
+                            var listItem = $('<tr></tr>');
+                            $('<td>' + Nota.id_estudiante + '<td>').appendTo(listItem);
+                            $('<td>' + Nota.id_tema + '<td>').appendTo(listItem);
+                            $('<td>' + Nota.nota + '<td>').appendTo(listItem);
+                            return listItem;
+                        });
+                        $('.table tbody').detach().jsp(notasjsp).appendTo('.table');
+                    },
+                    error: function () {
+                        alert("Error");
+                    },
+                    timeout: 3000
+                });
+            });
+        </script>
     </head>
     <body>
 
@@ -44,7 +68,7 @@
                             </div>
                         </div>
 
-                        <br><br>
+                        <br><br><br>
                         <a  href="menu.jsp">
                             <button type="button" class="btn tm-bordered-btn pull-xs-center">Volver</button>
                         </a>
