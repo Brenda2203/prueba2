@@ -22,18 +22,19 @@
 
                 </div>
                 <div class="col-sm-8 text-left"> 
+                    <br>
                     <h1>Notas del curso</h1>
                     <p></p>
-
+                    <br><br>
                     <div class="container">
                         <div class="row">
                             <div class="col">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Nombres</th>
-                                            <th>Apellidos</th>
-                                            <th>Teléfono</th>
+                                            <th>Estudiante</th>
+                                            <th>Tema</th>
+                                            <th>Nota</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -43,6 +44,10 @@
                             </div>
                         </div>
 
+                        <br><br>
+                        <a  href="menu.jsp">
+                            <button type="button" class="btn tm-bordered-btn pull-xs-center">Volver</button>
+                        </a>
                     </div>
 
                 </div>
