@@ -17,10 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.codehaus.jackson.map.ObjectMapper;
 
-/**
- *
- * @author anfeg
- */
+
 public class MostrarNota extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
