@@ -7,9 +7,9 @@ $(document).ready(function () {
             console.log(personas);
             var personasHTML = $.map(personas, function (persona, index) {
                 var listItem = $('<tr></tr>');
-                $('<td>' + persona.nombres + '<td>').appendTo(listItem);
-                $('<td>' + persona.apellidos + '<td>').appendTo(listItem);
-                $('<td>' + persona.telefonos + '<td>').appendTo(listItem);
+                $('<td>' + persona.estudiante + '</td>').appendTo(listItem);
+                $('<td>' + persona.tema + '</td>').appendTo(listItem);
+                $('<td>' + persona.nota + '</td>').appendTo(listItem);
                 return listItem;
             });
             $('.table tbody').detach().html(personasHTML).appendTo('.table');

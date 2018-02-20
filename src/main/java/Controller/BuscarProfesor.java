@@ -49,35 +49,23 @@ public class BuscarProfesor extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        response.setContentType("application/json");
-        PrintWriter out = response.getWriter();
-        JSONObject obj = new JSONObject();
         try {
-            obj.put("nombres", "hello from server");
-            obj.put("apellidos", "hello from server");
-            obj.put("telefonos", "hello from server");
-        } catch (JSONException ex) {
-            Logger.getLogger(MostrarNota.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        out.print(obj);
+                              
+            ProfesorDAO obj = new ProfesorDAO();
+            Profesor p = (Profesor) request.getSession().getAttribute("profesor");
+            
+            
+            ArrayList<Profesor> lista = (ArrayList<Profesor>) obj.getProfesorID(p.getId_profesor());
 
-//        try {
-//                              
-//            ProfesorDAO obj = new ProfesorDAO();
-//            Profesor p = (Profesor) request.getSession().getAttribute("profesor");
-//            
-//            
-//            ArrayList<Profesor> lista = (ArrayList<Profesor>) obj.getProfesorID(p.getId_profesor());
-//
-//            request.setAttribute("listaProfesorBuscar", lista);
-//
-//            request.getRequestDispatcher("perfil_profesor.jsp").forward(request, response);
-//
-//        } catch (SQLException ex) {
-//            Logger.getLogger(BuscarProfesor.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (URISyntaxException ex) {
-//            Logger.getLogger(BuscarProfesor.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+            request.setAttribute("listaProfesorBuscar", lista);
+
+            request.getRequestDispatcher("perfil_profesor.jsp").forward(request, response);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(BuscarProfesor.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(BuscarProfesor.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

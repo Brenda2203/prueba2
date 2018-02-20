@@ -21,9 +21,9 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Nombres</th>
-                                <th>Apellidos</th>
-                                <th>Teléfono</th>
+                                <th>Estudiante</th>
+                                <th>Tema</th>
+                                <th>Letra</th>
                             </tr>
                         </thead>
                         <tbody>
