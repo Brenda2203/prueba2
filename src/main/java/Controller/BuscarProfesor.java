@@ -19,6 +19,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 /**
  *
@@ -49,23 +51,34 @@ public class BuscarProfesor extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-                              
-            ProfesorDAO obj = new ProfesorDAO();
-            Profesor p = (Profesor) request.getSession().getAttribute("profesor");
-            
-            
-            ArrayList<Profesor> lista = (ArrayList<Profesor>) obj.getProfesorID(p.getId_profesor());
-
-            request.setAttribute("listaProfesorBuscar", lista);
-
-            request.getRequestDispatcher("perfil_profesor.jsp").forward(request, response);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(BuscarProfesor.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(BuscarProfesor.class.getName()).log(Level.SEVERE, null, ex);
+        
+                    response.setContentType("application/json");         
+            PrintWriter out = response.getWriter();         
+            JSONObject obj = new JSONObject();         
+        try {         
+            obj.put("message", "hello from server");
+        } catch (JSONException ex) {
+            Logger.getLogger(MostrarNota.class.getName()).log(Level.SEVERE, null, ex);
         }
+            out.print(obj);
+
+//        try {
+//                              
+//            ProfesorDAO obj = new ProfesorDAO();
+//            Profesor p = (Profesor) request.getSession().getAttribute("profesor");
+//            
+//            
+//            ArrayList<Profesor> lista = (ArrayList<Profesor>) obj.getProfesorID(p.getId_profesor());
+//
+//            request.setAttribute("listaProfesorBuscar", lista);
+//
+//            request.getRequestDispatcher("perfil_profesor.jsp").forward(request, response);
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(BuscarProfesor.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (URISyntaxException ex) {
+//            Logger.getLogger(BuscarProfesor.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     /**

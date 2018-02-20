@@ -9,7 +9,7 @@
  
     <servlet>
         <servlet-name>MostrarNota</servlet-name>            
-        <servlet-class>Controler.MostrarNota</servlet-class>
+        <servlet-class>Controller.MostrarNota</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MostrarNota</servlet-name>
