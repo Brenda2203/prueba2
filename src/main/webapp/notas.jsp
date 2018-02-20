@@ -16,14 +16,18 @@
     </head>
     <body>
         <div class="container">
+            <br>
+            <h1>Notas del curso</h1>
+            <br><br>
             <div class="row">
                 <div class="col">
+                    <h3>Notas del curso</h3>
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Estudiante</th>
                                 <th>Tema</th>
-                                <th>Letra</th>
+                                <th>Nota</th>
                             </tr>
                         </thead>
                         <tbody>
