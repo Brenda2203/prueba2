@@ -13,26 +13,8 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">                       <!-- Bootstrap style, http://v4-alpha.getbootstrap.com/ -->
         <link rel="stylesheet" href="css/templatemo-style.css">                    <!-- Templatemo style -->
 
-        <script src="http://code.jquery.com/jquery-latest.js">
-        </script>
-
-        <script>
-            $(document).ready(function () {
-                $('#submit').click(function (event) {
-                    var nombreVar = $('#nombre').val();
-                    var apellidoVar = $('#apellido').val();
-                    var edadVar = $('#edad').val();
-                    // Si en vez de por post lo queremos hacer por get, cambiamos el $.post por $.get
-                    $.post('ActionServlet', {
-                        nombre: nombreVar,
-                        apellido: apellidoVar,
-                        edad: edadVar
-                    }, function (responseText) {
-                        $('#tabla').html(responseText);
-                    });
-                });
-            });
-        </script>
+        <script src="js/jquery.1.9.1.min.js"></script>
+        <script src="js/myfunctions.js"></script>
     </head>
     <body>
 
