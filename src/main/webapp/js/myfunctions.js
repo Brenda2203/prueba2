@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $.ajax({
-        url:'https://softwar1.herokuapp.com/myApp/BuscarProfesor',
+        url:'https://softwar1.herokuapp.com/myApp/MostrarNota',
         dataType: "json",
         success: function (personas) {
             var personas = [personas];
