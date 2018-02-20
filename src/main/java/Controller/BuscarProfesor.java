@@ -5,7 +5,6 @@
  */
 package Controller;
 
-
 import Dao.ProfesorDAO;
 import Model.Profesor;
 import java.io.IOException;
@@ -37,8 +36,6 @@ public class BuscarProfesor extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-  
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -51,16 +48,18 @@ public class BuscarProfesor extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-                    response.setContentType("application/json");         
-            PrintWriter out = response.getWriter();         
-            JSONObject obj = new JSONObject();         
-        try {         
-            obj.put("message", "hello from server");
+
+        response.setContentType("application/json");
+        PrintWriter out = response.getWriter();
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("nombres", "hello from server");
+            obj.put("apellidos", "hello from server");
+            obj.put("telefonos", "hello from server");
         } catch (JSONException ex) {
             Logger.getLogger(MostrarNota.class.getName()).log(Level.SEVERE, null, ex);
         }
-            out.print(obj);
+        out.print(obj);
 
 //        try {
 //                              
@@ -92,8 +91,7 @@ public class BuscarProfesor extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-   
-        
+
     }
 
     /**
