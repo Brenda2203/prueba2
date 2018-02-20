@@ -3,7 +3,8 @@ $(document).ready(function () {
         url:'https://softwar1.herokuapp.com/myApp/BuscarProfesor',
         dataType: "json",
         success: function (personas) {
-            var pesonas = [personas];
+            var personas = [personas];
+            console.log(personas);
             var personasHTML = $.map(personas, function (persona, index) {
                 var listItem = $('<tr></tr>');
                 $('<td>' + persona.nombres + '<td>').appendTo(listItem);
