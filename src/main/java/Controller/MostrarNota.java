@@ -5,18 +5,28 @@
  */
 package Controller;
 
+import Dao.NotaDAO;
 import Model.Nota;
+import Model.Profesor;
+import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.URISyntaxException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.codehaus.jackson.map.ObjectMapper;
-
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 public class MostrarNota extends HttpServlet {
 
@@ -27,7 +37,19 @@ public class MostrarNota extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+      
+            
+            response.setContentType("application/json");         
+            PrintWriter out = response.getWriter();         
+            JSONObject obj = new JSONObject();         
+        try {         
+            obj.put("message", "hello from server");
+        } catch (JSONException ex) {
+            Logger.getLogger(MostrarNota.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            out.print(obj);
 
+       
     }
 
     @Override
