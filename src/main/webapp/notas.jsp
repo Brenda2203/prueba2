@@ -35,13 +35,7 @@
         </script>
     </head>
     <body>
-        <h2>Ejemplo de AJAX con JSP y Servelts</h2>
-        <form id="form1">
-            Nombre:<input type="text" id="nombre" /> <br>
-            Apellido: <input type="text" id="apellido" /> <br>
-            Edad: <input type="text" id="edad" /> <br>
-            <input type="button" id="submit" value="Añadir" /> 
-        </form>
+
         <br>
         <!-- 	En este div metemos el contenido de la tabla con AJAX -->
         <div id="tabla"></div>
